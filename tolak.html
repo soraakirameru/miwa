@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konfirmasi Tolak</title>
+<style>
+  body {
+    background-color: #020202;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Container & Animasi Hati Patah Gugur */
+  .broken-heart {
+    position: absolute;
+    top: -30px;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(105vh) rotate(360deg);
+      opacity: 0.1;
+    }
+  }
+
+   /* Container Utama dengan Efek Glassmorphism (Blur Transparan) */
+        .card-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 25px 20px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 380px;
+            width: 85%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+
+  .gif-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 1.4rem;
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: #fcf8f8;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .btn-nolak {
+    background-color: #ff4757;
+    color: white;
+  }
+
+  .btn-kembali {
+    background-color: #e0e0e0;
+    color: #333333;
+  }
+
+  .wa-button {
+    background-color: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* Menyembunyikan tampilan audio di layar */
+  audio {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Audio tersembunyi -->
+  <audio id="myAudio" src="https://tikcdn.io/ssstik/m/aHR0cHM6Ly9hcGkudGlrdG9rdi5jb20vYXdlbWUvdjEvcGxheS8/dmlkZW9faWQ9djA5OTQyZzQwMDAwY2lhcWsxM2M3N3VkdTM1ZGVtYWcmbGluZT0wJmlzX3BsYXlfdXJsPTEmc291cmNlPUFXRU1FX0RFVEFJTCZmaWxlX2lkPTY3NDkyOWE3ZjU5ODRjNzJiNzk3Y2IyN2YxOWE1MGU1Jml0ZW1faWQ9NzI0Nzg4NjA5NTQ2MjIzODk4MiZzaWduYXR1cmV2Mz1kbWxrWlc5ZmFXUTdabWxzWlY5cFpEdHBkR1Z0WDJsa0xqY3hOakpoTW1NeVpUUTFNelEwTW1VeVkySXlOVGMwTXpOak1UWmpPVGxoJnNocD1kMDViMTRiZCZzaGNwPS0=" preload="auto"></audio>
+
+  <div class="card-container">
+    <img id="gifImg" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3Ria21kMXV2NXN4ZGR0eXJkbG50OHZ6Y2x2cTZ4am9rbjBhd3FmeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9kunnEknrLg1zD2HjC/200.webp" alt="GIF Tolak" class="gif-image">
+    
+    <h2 id="judulTeks">Kok milih tombol ini?</h2>
+    <p id="deskripsiTeks">B-beneran? serius gabisa di perbaiki lagi??</p>
+    
+    <div class="button-group" id="btnGroup">
+      <button class="btn btn-kembali" onclick="kembaliBatal()">Gak Jadi deng, masih bisa</button>
+      <button class="btn btn-nolak" onclick="verifikasiTolak()">serius, gabisa 💔</button>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('myAudio');
+    const gifImg = document.getElementById('gifImg');
+    const judulTeks = document.getElementById('judulTeks');
+    const deskripsiTeks = document.getElementById('deskripsiTeks');
+    const btnGroup = document.getElementById('btnGroup');
+
+    // Musik berputar di latar belakang saat layar diinteraksi pertama kali
+    function putarMusik() {
+      audio.play().catch(() => {
+        const mulaiLagu = () => {
+          audio.play();
+          document.body.removeEventListener('click', mulaiLagu);
+          document.body.removeEventListener('touchstart', mulaiLagu);
+        };
+        document.body.addEventListener('click', mulaiLagu);
+        document.body.addEventListener('touchstart', mulaiLagu);
+      });
+    }
+
+    // Fungsi Efek Hati Patah Gugur
+    function buatEfekHatiPatah() {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.classList.add('broken-heart');
+        heart.innerText = '💔';
+        heart.style.left = Math.random() * 100 + 'vw';
+        
+        const durasi = Math.random() * 3 + 3; // 3 - 6 detik
+        heart.style.animationDuration = durasi + 's';
+        heart.style.fontSize = Math.random() * 12 + 16 + 'px';
+        
+        document.body.appendChild(heart);
+
+        setTimeout(() => { heart.remove(); }, durasi * 1000);
+      }, 250);
+    }
+
+    let tahapTolak = 0;
+
+    function verifikasiTolak() {
+      if (tahapTolak === 0) {
+        // Klik 1: Minta konfirmasi ulang
+        gifImg.src = "https://i.pinimg.com/736x/c5/0a/a0/c50aa04590538e6fcebdc24082cc92dc.jpg";
+        judulTeks.innerText = "Seriusan nih?? 🥺";
+        deskripsiTeks.innerText = " Ini kesempatan terakhir buat mikir ulang ?!";
+        
+        btnGroup.innerHTML = `
+          <button class="btn btn-kembali" onclick="kembaliBatal()">Iya deh bisa diperbaikin💖</button>
+          <button class="btn btn-nolak" onclick="verifikasiTolak()">Iya, Yakin 😞</button>
+        `;
+        tahapTolak = 1;
+      } else if (tahapTolak === 1) {
+        // Klik 2: Tampilkan Tombol WA
+        gifImg.src = "https://i.pinimg.com/736x/26/f6/60/26f660020066b68d16b42e1243e6e0f1.jpg"
+        judulTeks.innerText = "Yaudah deh kalau gitu...";
+        deskripsiTeks.innerText = "Makasih ya udah mau buka dan baca sampai selesai. Boleh kirimkan kode/sinyal di bawah ini ke WhatsApp aku?";
+        
+        const nomorWA = "6285730135590"; 
+        const pesanWA = encodeURIComponent("Halo, aku udah baca pesan kamu...");
+        
+        btnGroup.innerHTML = `
+          <a href="https://wa.me/${nomorWA}?text=${pesanWA}" class="wa-button" target="_blank">Kirim Sinyal Ke WA 📲</a>
+        `;
+      }
+    }
+
+    function kembaliBatal() {
+      window.location.href = "maunolak.html";
+    }
+
+    window.onload = () => {
+      putarMusik();
+      buatEfekHatiPatah();
+    };
+  </script>
+
+</body>
+</html>

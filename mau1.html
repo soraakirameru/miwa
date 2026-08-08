@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowers</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0d060a;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Container Latar Belakang Efek Hati */
+    .bg-hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Animasi Hati Melayang */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.5rem;
+      opacity: 0.6;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.8) rotate(0deg);
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .emojis {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      letter-spacing: 5px;
+    }
+
+    .message {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.4;
+      max-width: 800px;
+      color: #ffffff;
+      text-shadow: 
+        0 0 10px #ff69b4,
+        0 0 20px #ff69b4,
+        0 0 30px #ff1493;
+      margin-bottom: 40px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 20px;
+      padding: 10px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      outline: none;
+    }
+
+    .btn-mau {
+      background-color: #ff69b4;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+    }
+
+    .btn-mau:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .btn-nggak {
+      background-color: #4a4a4a;
+      color: #cccccc;
+    }
+
+    .btn-nggak:hover {
+      background-color: #666666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Efek Hati -->
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <!-- Konten Utama -->
+  <div class="content">
+    <div class="emojis">⁉️</div>
+
+    <div class="message">
+      Beneran mau??!! :3
+    </div>
+
+    <div class="btn-container">
+      <button class="btn-mau" id="btnMau">Mau banget!!</button>
+      <button class="btn-nggak" id="btnNggak">ngga, terpaksa</button>
+    </div>
+  </div>
+
+  <script>
+    // --- Membuat Efek Hati Melayang di Latar Belakang ---
+    const bgHearts = document.getElementById('bgHearts');
+    const heartIcons = ['❤️', '💖', '🌸', '✨', '💕'];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+      
+      // Posisi horizontal acak
+      heart.style.left = Math.random() * 100 + 'vw';
+      
+      // Durasi animasi acak (antara 4s - 8s)
+      const duration = Math.random() * 4 + 4;
+      heart.style.animationDuration = duration + 's';
+      
+      // Ukuran acak
+      const size = Math.random() * 1 + 1;
+      heart.style.transform = `scale(${size})`;
+
+      bgHearts.appendChild(heart);
+
+      // Hapus elemen setelah selesai teranimasi
+      setTimeout(() => {
+        heart.remove();
+      }, duration * 1000);
+    }
+
+    // Buat hati setiap 300ms
+    setInterval(createHeart, 300);
+
+    // --- Logika Tombol ---
+    const btnMau = document.getElementById('btnMau');
+    const btnNggak = document.getElementById('btnNggak');
+
+    let paddingVertical = 10;
+    let paddingHorizontal = 30;
+    let fontSize = 1;
+
+    // Tombol Nggak diklik -> Tombol Mau membesar
+    btnNggak.addEventListener('click', () => {
+      paddingVertical += 10;
+      paddingHorizontal += 20;
+      fontSize += 0.3;
+
+      btnMau.style.padding = `${paddingVertical}px ${paddingHorizontal}px`;
+      btnMau.style.fontSize = `${fontSize}rem`;
+    });
+
+    // Tombol Mau diklik -> Diarahkan ke mau.html
+    btnMau.addEventListener('click', () => {
+      window.location.href = 'mau.html';
+    });
+  </script>
+
+</body>
+</html>

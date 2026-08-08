@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 🌸</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a0a0a;
+            font-family: 'Poppins', sans-serif, Arial;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Styling Kepingan Salju Putih */
+        .snowflake {
+            position: absolute;
+            top: -20px;
+            color: #ffffff;
+            opacity: 0.9;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* Container Utama */
+         /* Container Utama dengan Efek Glassmorphism (Blur Transparan) */
+        .card-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 25px 20px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 380px;
+            width: 85%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .sticker {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        /* Wadah Lirik Lagu */
+        .lirik-container {
+            font-size: 13px;
+            font-style: italic;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Area Teks Panjang */
+        .penjelasan-box {
+            color: #030303;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 500;
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            padding: 10px 12px;
+            background: #fff5f8;
+            border-radius: 15px;
+            border: 1px dashed #abaaaa;
+        }
+
+        /* Scrollbar Styling */
+        .penjelasan-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .penjelasan-box::-webkit-scrollbar-thumb {
+            background-color: #a1a1a1;
+            border-radius: 10px;
+        }
+
+        /* Cursor Mengetik */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 15px;
+            background-color: #878787;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Group Tombol */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .button-group.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            outline: none;
+        }
+
+        .btn-mau {
+            background-color: #969393;
+            color: white;
+            box-shadow: 0 4px 10px rgba(202, 202, 202, 0.4);
+        }
+
+        .btn-mau:active {
+            transform: scale(0.95);
+        }
+
+        .btn-ngga {
+            background-color: #f0f0f0;
+            color: #7c7b7c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TAG MUSIK -->
+    <audio id="myAudio" src="https://tikcdn.io/ssstik/m/aHR0cHM6Ly9hcGkxNi1ub3JtYWwtdXNlYXN0NS50aWt0b2t2LnVzL2F3ZW1lL3YxL3BsYXkvP3ZpZGVvX2lkPXYxNTk0MmdmMDAwMGQzYXRwbHZvZzY1cmF0MGpnNGYwJmxpbmU9MCZpc19wbGF5X3VybD0xJnNvdXJjZT1BV0VNRV9ERVRBSUwmZmlsZV9pZD12MTU5NDJnZjAwMDBkM2F0cGx2b2c2NXJhdDBqZzRmMCZpdGVtX2lkPTc1NTQxODY2NjU5MzQyNzc0MDYmc2lnbj1mNzM0MWNiYzk5MzVlZWJhYTYxNzYxZDU5MGNjNTQyMSZzaWduYXR1cmV2Mz1kbWxrWlc5ZmFXUTdabWxzWlY5cFpEdHBkR1Z0WDJsa0xqWmtZMlV6WTJNeU4ySTNaVFl5WWpGbVltWTNZMk0yWWpSalpUTTFaVFE1JnNocD1kMDViMTRiZCZzaGNwPS0=" preload="auto"></audio>
+
+    <div class="card-container">
+        <!-- Stiker -->
+        <img src="https://i.pinimg.com/736x/63/78/0a/63780aa64a274934c2b3d4c007909a25.jpg" alt="Stiker Cute" class="sticker" id="stikerImg">
+
+        <!-- Tempat Lirik Lagu -->
+        <div class="lirik-container" id="boxLirik">
+            - 🎵 -
+        </div>
+
+        <!-- Tempat Teks Pesan -->
+        <div class="penjelasan-box" id="scrollBox">
+            <span id="teksPesan"></span><span class="cursor" id="cursor"></span>
+        </div>
+
+        <!-- Opsi Tombol -->
+        <div class="button-group" id="buttonGroup">
+            <button class="btn btn-mau" id="btnMau" onclick="pilihMau()">Mau 💕</button>
+            <button class="btn btn-ngga" id="btnNggak">Ngga 😜</button>
+        </div>
+    </div>
+
+    <script>
+    const pesan = "Halo maniss 🌸\n\nAku mau jujur, ternyata perasaanku ke kamu masih ada. Aku tahu aku pernah nyakitin kamu dan mungkin bikin kamu susah percaya lagi sama aku. Aku nggak mau maksa kamu buat nunggu atau langsung balik, aku cuma pengin tahu… setelah semua yang terjadi, kamu masih mau kasih kita kesempatan buat memperbaiki semuanya nggak?";
+
+    const daftarLirik = [
+        { waktu: 0, lirik: "🎵 You know it's true " },
+        { waktu: 4, lirik: "🎵 That i miss you" },
+        { waktu: 9, lirik: "🎵 You know it's true " },
+        { waktu: 13, lirik: "🎵 So what if I call?" },
+        { waktu: 18, lirik: "🎵 And you pick up the phone?" },
+        { waktu: 22, lirik: "🎵 And I use this holiday to make my way to your coast" },
+        { waktu: 32, lirik: "🎵 Oh, what if you're lonely?" },
+        { waktu: 36.5, lirik: "🎵 And you know I am too?" },
+        { waktu: 41, lirik: "🎵 And I get the chance to say, 'let's get back together, I miss you'" },
+        { waktu: 50, lirik: "🎵 I miss you" }
+    ];
+
+    const elemenTeks = document.getElementById('teksPesan');
+    const elemenCursor = document.getElementById('cursor');
+    const scrollBox = document.getElementById('scrollBox');
+    const buttonGroup = document.getElementById('buttonGroup');
+    const btnMau = document.getElementById('btnMau');
+    const btnNggak = document.getElementById('btnNggak');
+    const audio = document.getElementById('myAudio');
+    const boxLirik = document.getElementById('boxLirik');
+
+    let index = 0;
+    const kecepatanKetik = 40;
+
+    let paddingV = 10;
+    let paddingH = 22;
+    let fontSize = 14;
+
+    // Penghitung jumlah klik pada tombol Ngga
+    let jumlahKlikNgga = 0;
+
+    function putarMusik() {
+        audio.play().catch(() => {
+            const mulaiLagu = () => {
+                audio.play();
+                document.body.removeEventListener('click', mulaiLagu);
+                document.body.removeEventListener('touchstart', mulaiLagu);
+            };
+            document.body.addEventListener('click', mulaiLagu);
+            document.body.addEventListener('touchstart', mulaiLagu);
+        });
+    }
+
+    function ketikTeks() {
+        if (index < pesan.length) {
+            let char = pesan.charAt(index);
+            if (char === '\n') {
+                elemenTeks.innerHTML += '<br>';
+            } else {
+                elemenTeks.innerHTML += char;
+            }
+            index++;
+            
+            scrollBox.scrollTop = scrollBox.scrollHeight;
+            setTimeout(ketikTeks, kecepatanKetik);
+        } else {
+            elemenCursor.style.display = 'none';
+            buttonGroup.classList.add('show');
+        }
+    }
+
+    // Sinkronisasi Lirik
+    audio.addEventListener('timeupdate', () => {
+        const waktuSekarang = audio.currentTime;
+        for (let i = daftarLirik.length - 1; i >= 0; i--) {
+            if (waktuSekarang >= daftarLirik[i].waktu) {
+                boxLirik.innerText = daftarLirik[i].lirik;
+                break;
+            }
+        }
+    });
+
+    // LOGIKA TOMBOL NGGA (Pindah acak 2x, klik ke-3 ke tolak.html)
+    btnNggak.addEventListener('click', () => {
+        jumlahKlikNgga++;
+
+        if (jumlahKlikNgga < 3) {
+            // 1. Membesarkan tombol Mau
+            paddingV += 10;
+            paddingH += 20;
+            fontSize += 4;
+            btnMau.style.padding = `${paddingV}px ${paddingH}px`;
+            btnMau.style.fontSize = `${fontSize}px`;
+
+            // 2. Memindahkan posisi tombol Ngga secara acak
+            const randomX = Math.floor(Math.random() * 200) - 100; // geser X
+            const randomY = Math.floor(Math.random() * 150) - 75;  // geser Y
+            
+            btnNggak.style.position = 'relative';
+            btnNggak.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        } else {
+            // Klik ke-3: Pindah ke halaman tolak.html
+            window.location.href = "tolak.html";
+        }
+    });
+
+    function pilihMau() {
+        window.location.href = "konfirmasi.html";
+    }
+
+    // Efek Salju Putih
+    function buatEfekSalju() {
+        const simbols = ['❄', '❅', '❆', '•', '✧'];
+        setInterval(() => {
+            const flake = document.createElement('div');
+            flake.classList.add('snowflake');
+            flake.innerText = simbols[Math.floor(Math.random() * simbols.length)];
+            flake.style.left = Math.random() * 100 + 'vw';
+            
+            const durasi = Math.random() * 3 + 3;
+            flake.style.animationDuration = durasi + 's';
+            flake.style.fontSize = Math.random() * 10 + 12 + 'px';
+            
+            document.body.appendChild(flake);
+
+            setTimeout(() => { flake.remove(); }, durasi * 1000);
+        }, 200);
+    }
+
+    window.onload = () => {
+        ketikTeks();
+        buatEfekSalju();
+        putarMusik();
+    };
+</script>
+    </script>
+</body>
+</html>

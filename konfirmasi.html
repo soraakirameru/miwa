@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Jawaban 🌸</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Animasi Hati Melayang */
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: floatUp 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffb3fb;
+            font-family: 'Poppins', sans-serif, Arial;
+            overflow: hidden;
+            position: relative;
+        }
+
+           /* Container Utama dengan Efek Glassmorphism (Blur Transparan) */
+        .card-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 25px 20px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 380px;
+            width: 85%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+
+        .sticker {
+            width: 130px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Container Lirik Lagu */
+        .lirik-box {
+            font-size: 13px;
+            font-style: italic;
+            color: #ff477e;
+    
+            padding: 8px 12px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            min-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ff9ebb;
+        }
+
+        h2 {
+            color: #f7509e;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-wa {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-wa:active {
+            transform: scale(0.95);
+        }
+
+        /* Menyembunyikan tampilan player audio */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Audio Tersembunyi -->
+    <audio id="myAudio" src="https://tikcdn.io/ssstik/m/aHR0cHM6Ly9hcGkxNi1ub3JtYWwtdXNlYXN0NS50aWt0b2t2LnVzL2F3ZW1lL3YxL3BsYXkvP3ZpZGVvX2lkPXYxMDk0Mmc1MDAwMGQ1YTdndGZvZzY1aWQ1NnMycjAwJmxpbmU9MCZpc19wbGF5X3VybD0xJnNvdXJjZT1BV0VNRV9ERVRBSUwmZmlsZV9pZD1hZTY4ODQ4ZjA0ZjI0NWNhODE0M2I3NzkxYWQxZDc3MCZpdGVtX2lkPTc1ODk4MjM3MTUyNDA2NzYwOTcmc2lnbmF0dXJldjM9ZG1sa1pXOWZhV1E3Wm1sc1pWOXBaRHRwZEdWdFgybGtMalE0WW1JNE1UTmhaRGsyWkRabU1qZzFOek0zTnpGa056RmhaamszTm1FMiZzaHA9ZDA1YjE0YmQmc2hjcD0t" preload="auto"></audio>
+
+    <!-- Background Efek Hati -->
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <div class="card-container">
+        <!-- Stiker Happy / Selebrasi -->
+        <img src="https://i.pinimg.com/736x/13/e5/9f/13e59fdec521f6bc732ea55812a4a56e.jpg" alt="Stiker Happy" class="sticker">
+
+        <!-- Wadah Lirik Lagu -->
+        <div class="lirik-box" id="boxLirik">
+            🎵 Memutar lagu...
+        </div>
+
+        <h2>THANK U MANISS</h2>
+        <p>
+ I love you, and I promise that I can treat you better than before. Aku nggak bisa mengubah apa yang udah aku lakukan, tapi kalau kamu masih kasih aku kesempatan, aku mau buktiin kalau aku bisa belajar dari kesalahan aku dan nggak ngulangin hal yang sama lagi. 🤍 Semoga dengan ini kamu mulai percaya aku lagi ya!
+        </p>
+
+        <!-- Tombol Kirim WhatsApp -->
+        <a id="waLink" class="btn-wa" href="#" target="_blank">
+            💬 Kirim code ke wa biar aku taw
+        </a>
+    </div>
+
+    <script>
+        const audio = document.getElementById('myAudio');
+        const boxLirik = document.getElementById('boxLirik');
+
+        // Data Lirik dan Detik Lagu
+        const daftarLirik = [
+           { waktu: 0, lirik: "🎵 And when I hold you in my arms, I promise you" },
+            { waktu: 7, lirik: "🎵 You're gonna feel a love that's beautiful and new" },
+            { waktu: 16, lirik: "🎵 This time I'll love you even better" },
+            { waktu: 19.5, lirik: "🎵 Than I ever did before" },
+            { waktu: 24, lirik: "🎵 And you'll be in my heart forevermore" }
+        ];
+
+        // Pemutaran Musik Otomatis Saat Layar Disentuh/Diklik
+        function putarMusik() {
+            audio.play().catch(() => {
+                const mulaiLagu = () => {
+                    audio.play();
+                    document.body.removeEventListener('click', mulaiLagu);
+                    document.body.removeEventListener('touchstart', mulaiLagu);
+                };
+                document.body.addEventListener('click', mulaiLagu);
+                document.body.addEventListener('touchstart', mulaiLagu);
+            });
+        }
+
+        // Sinkronisasi Lirik dengan Audio
+        audio.addEventListener('timeupdate', () => {
+            const waktuSekarang = audio.currentTime;
+            for (let i = daftarLirik.length - 1; i >= 0; i--) {
+                if (waktuSekarang >= daftarLirik[i].waktu) {
+                    boxLirik.innerText = daftarLirik[i].lirik;
+                    break;
+                }
+            }
+        });
+
+        // Efek Hati Melayang
+        const bgHearts = document.getElementById('bgHearts');
+        const heartIcons = ['❤️', '💖', '🌸', '✨', '💕'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            const duration = Math.random() * 4 + 4;
+            heart.style.animationDuration = duration + 's';
+            
+            const size = Math.random() * 1 + 1;
+            heart.style.transform = `scale(${size})`;
+
+            bgHearts.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createHeart, 300);
+
+        // Pengaturan Nomor WA
+        const nomorWA = "6285730135590"; 
+        const pesanClue = "Haloo! Kode Konfirmasi: [ BUNGA-PINK-MAU-AKU-DITERIMA 🌸💖 ]. Makasih yaaa!";
+        const urlWA = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(pesanClue)}`;
+        
+        document.getElementById('waLink').href = urlWA;
+
+        window.onload = () => {
+            putarMusik();
+        };
+    </script>
+</body>
+</html>
