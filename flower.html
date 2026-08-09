@@ -8,194 +8,83 @@
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <title>apa nyak</title>
     <style>
-        /* Reset & Layout Utama */
+        /* Reset & Layout Utama (Diubah ke 100dvh agar pas di layar HP & tidak kepotong) */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        body {
+        html, body {
+            height: 100dvh;
+            min-height: 100dvh;
             background-color: #0b1021;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            overflow-x: hidden;
-            padding: 20px 10px;
+            overflow: hidden;
+            padding: 10px 10px;
             font-family: sans-serif;
         }
 
-        /* Area Teks Atas */
+        /* Pembungkus Area Teks Atas */
         .header-text {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             z-index: 10;
-}
-    /* Desain Judul Terminal (Warna Disesuaikan Lebih Aesthetic) */
-    .title {
-        font-family: 'Fira Code', 'Courier New', Consolas, monospace !important;
-        font-size: 1.1rem !important;
-        color: #fff0f5 !important;
-        background: rgba(255, 182, 193, 0.12) !important;
-        border: 1px solid rgba(255, 182, 193, 0.25) !important;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 12px !important;
-        padding: 10px 18px !important;
-        margin-top: 10px;
-        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.4) !important;
-        letter-spacing: -0.5px !important;
-            text-align: center;
+            margin-top: 5px;
         }
 
-  /* Subtitle Tanpa Container/Kotak (Hanya Teks Glowing) */
-.subtitle {
-    font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-            font-size: 0.85rem;
-            color: #f8caf1;
-    background: none !important;      /* Menghapus background */
-    border: none !important;          /* Menghapus border/kotak */
-    box-shadow: none !important;      /* Menghapus bayangan kotak */
-    padding: 0 !important;            /* Menghapus jarak dalam */
-    letter-spacing: 0.5px;
+        /* Desain Judul */
+        .title-polos {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 101, 132, 0.8);
             text-align: center;
-    animation: fadeInGlow 2.5s ease-in-out infinite alternate;
-}
+            margin: 0;
+        }
 
-@keyframes fadeInGlow {
-    0% {
-        opacity: 0.75;
-        text-shadow: 0 0 4px rgba(248, 202, 241, 0.4);
-    }
-    100% {
-        opacity: 1;
-        text-shadow: 0 0 10px rgba(248, 202, 241, 0.9), 0 0 18px rgba(255, 105, 180, 0.6);
-    } }
-    /* Pembungkus Bunga di Tengah */
+        /* Subtitle Estetik */
+        .subtitle-polos {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 0.75rem;
+            color: #f8caf1;
+            opacity: 0.9;
+            text-shadow: 0 0 8px rgba(248, 202, 241, 0.6);
+            letter-spacing: 0.5px;
+            margin: 0;
+            text-align: center;
+            animation: fadeInGlow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeInGlow {
+            0% { opacity: 0.75; text-shadow: 0 0 4px rgba(248, 202, 241, 0.4); }
+            100% { opacity: 1; text-shadow: 0 0 10px rgba(248, 202, 241, 0.9), 0 0 18px rgba(255, 105, 180, 0.6); }
+        }
+
+        /* Pembungkus Bunga di Tengah */
         .flower-wrapper {
             position: relative;
             width: 100%;
             max-width: 400px;
-            height: 50vh;
+            height: 45vh;
             display: flex;
             justify-content: center;
             align-items: flex-end;
             margin: auto 0;
         }
 
-    /* Penyesuaian container bawaan bunga */
-    .flowers {
-        position: relative;
-        transform: scale(0.85); /* Skala disesuaikan agar pas di layar HP */
-        transform-origin: bottom center;
-    }
-
-    /* Container Tombol */
-    .action-buttons {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin-bottom: 20px;
-        z-index: 10;
-        }
-    /* Reset & Layout Utama */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        background-color: #0b1021; /* Background malam gelap agar bunga terlihat jelas */
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        overflow-x: hidden;
-        padding: 20px 10px;
-        font-family: sans-serif;
-        }
-
-    /* Pembungkus Area Teks Atas */
-    .header-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        z-index: 10;
-    }
-
-    /* Desain Judul Terminal (Warna Disesuaikan Lebih Aesthetic) */
-    .title {
-        font-family: 'Fira Code', 'Courier New', Consolas, monospace !important;
-        font-size: 1.1rem !important;
-        color: #fff0f5 !important;
-        background: rgba(255, 182, 193, 0.12) !important;
-        border: 1px solid rgba(255, 182, 193, 0.25) !important;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 12px !important;
-        padding: 10px 18px !important;
-        margin-top: 10px;
-        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.4) !important;
-        letter-spacing: -0.5px !important;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(255, 105, 180, 0.15);
-        }
-
-    /* Subtitle Estetik Tambahan (Warna Disesuaikan) */
-    .subtitle {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        font-style: italic;
-        font-size: 0.85rem;
-        color: #f8caf1;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(248, 202, 241, 0.18);
-        padding: 6px 16px;
-        border-radius: 20px;
-        letter-spacing: 0.5px;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        animation: fadeInGlow 2.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes fadeInGlow {
-        0% {
-            opacity: 0.75;
-            text-shadow: 0 0 4px rgba(248, 202, 241, 0.3);
-        }
-        100% {
-            opacity: 1;
-            text-shadow: 0 0 10px rgba(248, 202, 241, 0.8), 0 0 18px rgba(255, 105, 180, 0.5);
-        }
-    }
-
-    /* Pembungkus Bunga di Tengah */
-    .flower-wrapper {
-        position: relative;
-        width: 100%;
-        max-width: 400px;
-        height: 50vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        margin: auto 0;
-        }
-
-    /* Penyesuaian container bawaan bunga */
-    .flowers {
-        position: relative;
-        transform: scale(0.85); /* Skala disesuaikan agar pas di layar HP */
-        transform-origin: bottom center;
+        /* Penyesuaian container bawaan bunga */
+        .flowers {
+            position: relative;
+            transform: scale(0.75); /* Dikecilkan sedikit agar pas di layar HP */
+            transform-origin: bottom center;
         }
 
         /* Container Tombol */
@@ -205,13 +94,13 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             z-index: 10;
         }
 
         .button-container button {
-            padding: 10px 24px;
-            font-size: 1rem;
+            padding: 8px 20px;
+            font-size: 0.95rem;
             font-weight: bold;
             border: none;
             border-radius: 20px;
@@ -230,7 +119,7 @@
             display: block;
         }
 
-    /* Tombol Tolak dengan Warna Muted Slate Blue/Purple */
+        /* Tombol Tolak */
         .button-container.right button,
         .btn-tolak {
             background-color: #2a324b !important;
@@ -239,19 +128,15 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
         }
 
-    /* Penyesuaian khusus HP sangat kecil */
-    @media (max-height: 600px) {
-        .flowers {
-            transform: scale(0.65);
+        /* Penyesuaian khusus HP sangat kecil */
+        @media (max-height: 600px) {
+            .flowers {
+                transform: scale(0.6);
+            }
+            .title-polos {
+                font-size: 0.95rem;
+            }
         }
-        .title {
-            font-size: 0.9rem !important;
-        }
-        .subtitle {
-            font-size: 0.75rem;
-        }
-    }
-    
     </style>
 </head>
 <body class="loaded">
@@ -339,52 +224,54 @@
                     <div class="flower__line__leaf flower__line__leaf--4"></div>
                 </div>
             </div>
+
             <!-- TAMBAHAN BUNGA 4 (KIRI LUAR) -->
-        <div class="flower flower--1" style="position: absolute; left: -20%; bottom: 0; transform: rotate(-30deg) scale(0.75);">
-            <div class="flower__leafs flower__leafs--1">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+            <div class="flower flower--1" style="position: absolute; left: -20%; bottom: 0; transform: rotate(-30deg) scale(0.75);">
+                <div class="flower__leafs flower__leafs--1">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                </div>
+                <div class="flower__line"></div>
             </div>
-            <div class="flower__line"></div>
-        </div>
 
-        <!-- TAMBAHAN BUNGA 5 (KANAN LUAR) -->
-        <div class="flower flower--2" style="position: absolute; right: -20%; bottom: 0; transform: rotate(30deg) scale(0.75);">
-            <div class="flower__leafs flower__leafs--2">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+            <!-- TAMBAHAN BUNGA 5 (KANAN LUAR) -->
+            <div class="flower flower--2" style="position: absolute; right: -20%; bottom: 0; transform: rotate(30deg) scale(0.75);">
+                <div class="flower__leafs flower__leafs--2">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                </div>
+                <div class="flower__line"></div>
             </div>
-            <div class="flower__line"></div>
-        </div>
-        <!-- TAMBAHAN BUNGA 6 (KIRI SANGAT ATAS) -->
-        <div class="flower flower--3" style="position: absolute; left: -10%; bottom: 40px; transform: rotate(-15deg) scale(0.8);">
-            <div class="flower__leafs flower__leafs--3">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"></div>
-        </div>
 
-        <!-- TAMBAHAN BUNGA 7 (KANAN SANGAT ATAS) -->
-        <div class="flower flower--1" style="position: absolute; right: -10%; bottom: 40px; transform: rotate(15deg) scale(0.8);">
-            <div class="flower__leafs flower__leafs--1">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+            <!-- TAMBAHAN BUNGA 6 (KIRI SANGAT ATAS) -->
+            <div class="flower flower--3" style="position: absolute; left: -10%; bottom: 40px; transform: rotate(-15deg) scale(0.8);">
+                <div class="flower__leafs flower__leafs--3">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                </div>
+                <div class="flower__line"></div>
             </div>
-            <div class="flower__line"></div>
-        </div>
+
+            <!-- TAMBAHAN BUNGA 7 (KANAN SANGAT ATAS) -->
+            <div class="flower flower--1" style="position: absolute; right: -10%; bottom: 40px; transform: rotate(15deg) scale(0.8);">
+                <div class="flower__leafs flower__leafs--1">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                </div>
+                <div class="flower__line"></div>
+            </div>
 
             <div class="grow-ans" style="--d:1.2s">
                 <div class="flower__g-long">
@@ -424,14 +311,12 @@
                     <div class="flower__grass__overlay"></div>
                 </div>
                 <!-- PITA IKATAN BOUQUET -->
-        <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; display: flex; flex-direction: column; align-items: center;">
-            <!-- Simpul Pita -->
-            <div style="width: 36px; height: 16px; background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 20px #ff6584; position: relative;">
-                <!-- Ekor Pita Kiri & Kanan -->
-                <div style="position: absolute; top: 10px; left: 6px; width: 5px; height: 22px; background: #ffffff; transform: rotate(25deg); box-shadow: 0 0 8px #ffffff;"></div>
-                <div style="position: absolute; top: 10px; right: 6px; width: 5px; height: 22px; background: #ffffff; transform: rotate(-25deg); box-shadow: 0 0 8px #ffffff;"></div>
-            </div>
-        </div>
+                <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 36px; height: 16px; background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 20px #ff6584; position: relative;">
+                        <div style="position: absolute; top: 10px; left: 6px; width: 5px; height: 22px; background: #ffffff; transform: rotate(25deg); box-shadow: 0 0 8px #ffffff;"></div>
+                        <div style="position: absolute; top: 10px; right: 6px; width: 5px; height: 22px; background: #ffffff; transform: rotate(-25deg); box-shadow: 0 0 8px #ffffff;"></div>
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--dark-color);
   overflow: hidden;
   perspective: 1000px;
@@ -37,11 +37,11 @@ body {
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    margin-top: 50px !important; /* Nilai ditambah dari 15px ke 50px agar lebih turun */
+    margin-top: 10px !important; /* Dikecilin supaya naik ke atas dan gak kepotong */
+    padding-top: 15px !important; /* Tambah padding atas agar aman dari bar HP */
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
     z-index: 10;
 }
 
