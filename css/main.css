@@ -45,32 +45,31 @@ body {
     z-index: 10;
 }
 
-/* Title Utama: Font Poppins Modern & Glowing */
-.title-polos {
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 1.15rem !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    text-align: center !important;
-    letter-spacing: 0.5px !important;
-    text-shadow: 0 0 10px #ff6584, 0 0 20px #ff4d6d !important;
-}
+/* Desain Judul - Modern & Clean */
+        .title-polos {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(255, 101, 132, 0.4);
+            text-align: center;
+            margin: 0;
+            letter-spacing: -0.3px;
+        }
 
-.subtitle-polos {
-    font-family: 'Petit Formal Script', cursive; /* Font Latin Model Buku Halus Tegak */
-    font-style: normal !important;              /* Pasti Tegak Lurus (Gak Miring) */
-    font-size: 0.8rem;                          /* Ukuran Kecil Sesuai Kemauan */
-    color: #ffe3f7;
-    text-shadow: 0 0 6px rgba(255, 227, 247, 0.6);
-    letter-spacing: 0px;                        /* Spasi Normal Biar Nyambung Rapi */
-    margin-top: 5px;
-    text-align: center;
-}
+        /* Subtitle Estetik - Elegan ala Serif */
+        .subtitle-polos {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.8rem;
+            color: #ffd1dc;
+            opacity: 0.95;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+            letter-spacing: 0.5px;
+            margin: 0;
+            text-align: center;
+            animation: fadeInGlow 2.5s ease-in-out infinite alternate;
+        }
 /* Pembungkus luar agar tombol berada di bawah layar HP */
 .action-buttons {
     position: fixed;
