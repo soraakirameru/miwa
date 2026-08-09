@@ -43,38 +43,36 @@
             position: relative;
         }
 
-           /* Container Utama dengan Efek Glassmorphism (Blur Transparan) */
+        /* Container Utama Dikecilkan Sesuai Halaman Sebelumnya */
         .card-container {
             background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 25px 20px;
-            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 16px 14px;
+            border-radius: 20px;
             text-align: center;
-            max-width: 380px;
-            width: 85%;
+            max-width: 280px;
+            width: 75%;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             position: relative;
             z-index: 10;
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-
         .sticker {
-            width: 130px;
+            width: 85px;
             height: auto;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         /* Container Lirik Lagu */
         .lirik-box {
-            font-size: 13px;
+            font-size: 11px;
             font-style: italic;
             color: #ff477e;
-    
-            padding: 8px 12px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            margin-bottom: 12px;
             font-weight: bold;
             min-height: 20px;
             display: flex;
@@ -85,26 +83,28 @@
 
         h2 {
             color: #f7509e;
-            margin-bottom: 10px;
-            font-size: 20px;
+            margin-bottom: 8px;
+            font-size: 18px;
         }
 
         p {
             color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            max-height: 130px;
+            overflow-y: auto;
         }
 
         .btn-wa {
             display: inline-block;
             background-color: #25d366;
             color: white;
-            padding: 12px 24px;
-            border-radius: 15px;
+            padding: 10px 18px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 13px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
             transition: transform 0.2s;
         }
@@ -121,8 +121,8 @@
 </head>
 <body>
 
-    <!-- Audio Tersembunyi -->
-    <audio id="myAudio" src="https://tikcdn.io/ssstik/m/aHR0cHM6Ly9hcGkxNi1ub3JtYWwtdXNlYXN0NS50aWt0b2t2LnVzL2F3ZW1lL3YxL3BsYXkvP3ZpZGVvX2lkPXYxMDk0Mmc1MDAwMGQ1YTdndGZvZzY1aWQ1NnMycjAwJmxpbmU9MCZpc19wbGF5X3VybD0xJnNvdXJjZT1BV0VNRV9ERVRBSUwmZmlsZV9pZD1hZTY4ODQ4ZjA0ZjI0NWNhODE0M2I3NzkxYWQxZDc3MCZpdGVtX2lkPTc1ODk4MjM3MTUyNDA2NzYwOTcmc2lnbmF0dXJldjM9ZG1sa1pXOWZhV1E3Wm1sc1pWOXBaRHRwZEdWdFgybGtMalE0WW1JNE1UTmhaRGsyWkRabU1qZzFOek0zTnpGa056RmhaamszTm1FMiZzaHA9ZDA1YjE0YmQmc2hjcD0t" preload="auto"></audio>
+    <!-- TAG MUSIK LOKAL -->
+    <audio id="myAudio" src="laguterima.mp3" preload="auto"></audio>
 
     <!-- Background Efek Hati -->
     <div class="bg-hearts" id="bgHearts"></div>
@@ -138,7 +138,7 @@
 
         <h2>THANK U MANISS</h2>
         <p>
- I love you, and I promise that I can treat you better than before. Aku nggak bisa mengubah apa yang udah aku lakukan, tapi kalau kamu masih kasih aku kesempatan, aku mau buktiin kalau aku bisa belajar dari kesalahan aku dan nggak ngulangin hal yang sama lagi. 🤍 Semoga dengan ini kamu mulai percaya aku lagi ya!
+            I love you, and I promise that I can treat you better than before. Aku nggak bisa mengubah apa yang udah aku lakukan, tapi kalau kamu masih kasih aku kesempatan, aku mau buktiin kalau aku bisa belajar dari kesalahan aku dan nggak ngulangin hal yang sama lagi. 🤍 Semoga dengan ini kamu mulai percaya aku lagi ya!
         </p>
 
         <!-- Tombol Kirim WhatsApp -->
@@ -153,24 +153,26 @@
 
         // Data Lirik dan Detik Lagu
         const daftarLirik = [
-           { waktu: 0, lirik: "🎵 And when I hold you in my arms, I promise you" },
+            { waktu: 0, lirik: "🎵 And when I hold you in my arms, I promise you" },
             { waktu: 7, lirik: "🎵 You're gonna feel a love that's beautiful and new" },
             { waktu: 16, lirik: "🎵 This time I'll love you even better" },
-            { waktu: 19.5, lirik: "🎵 Than I ever did before" },
+            { waktu: 20, lirik: "🎵 Than I ever did before" },
             { waktu: 24, lirik: "🎵 And you'll be in my heart forevermore" }
         ];
 
         // Pemutaran Musik Otomatis Saat Layar Disentuh/Diklik
         function putarMusik() {
-            audio.play().catch(() => {
-                const mulaiLagu = () => {
-                    audio.play();
-                    document.body.removeEventListener('click', mulaiLagu);
-                    document.body.removeEventListener('touchstart', mulaiLagu);
-                };
-                document.body.addEventListener('click', mulaiLagu);
-                document.body.addEventListener('touchstart', mulaiLagu);
-            });
+            const mainkan = () => {
+                audio.play().then(() => {
+                    document.removeEventListener('click', mainkan);
+                    document.removeEventListener('touchstart', mainkan);
+                    document.removeEventListener('pointerdown', mainkan);
+                }).catch(() => {});
+            };
+
+            document.addEventListener('click', mainkan);
+            document.addEventListener('touchstart', mainkan);
+            document.addEventListener('pointerdown', mainkan);
         }
 
         // Sinkronisasi Lirik dengan Audio

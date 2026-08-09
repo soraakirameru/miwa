@@ -8,14 +8,14 @@
     <style>
         body {
             margin: 0;
-            padding: 20px 0;
-            min-height: 100vh;
+            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #0a0a0a;
             font-family: 'Poppins', sans-serif, Arial;
-            overflow-x: hidden;
+            overflow: hidden;
             position: relative;
         }
 
@@ -43,60 +43,60 @@
         }
 
         /* Container Utama */
-         /* Container Utama dengan Efek Glassmorphism (Blur Transparan) */
         .card-container {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 25px 20px;
-            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 16px 14px;
+            border-radius: 20px;
             text-align: center;
-            max-width: 380px;
-            width: 85%;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-width: 280px;
+            width: 75%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
             position: relative;
             z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .sticker {
-            width: 120px;
+            width: 85px;
             height: auto;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
+            border-radius: 10px;
             transition: all 0.3s ease;
         }
 
         /* Wadah Lirik Lagu */
         .lirik-container {
-            font-size: 13px;
+            font-size: 11px;
             font-style: italic;
             color: #ffffff;
-            padding: 8px 12px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
             text-align: center;
         }
 
-        /* Area Teks Panjang */
+        /* Area Teks Pesan */
         .penjelasan-box {
             color: #030303;
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 12px;
             font-weight: 500;
-            max-height: 200px;
+            max-height: 130px;
             overflow-y: auto;
             text-align: left;
-            padding: 10px 12px;
+            padding: 8px 10px;
             background: #fff5f8;
-            border-radius: 15px;
+            border-radius: 12px;
             border: 1px dashed #abaaaa;
         }
 
         /* Scrollbar Styling */
         .penjelasan-box::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
         .penjelasan-box::-webkit-scrollbar-thumb {
             background-color: #a1a1a1;
@@ -107,7 +107,7 @@
         .cursor {
             display: inline-block;
             width: 2px;
-            height: 15px;
+            height: 13px;
             background-color: #878787;
             animation: blink 0.7s infinite;
             vertical-align: middle;
@@ -123,12 +123,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             position: relative;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.5s ease, visibility 0.5s ease;
-            margin-top: 10px;
+            margin-top: 5px;
             flex-wrap: wrap;
         }
 
@@ -138,10 +138,10 @@
         }
 
         .btn {
-            padding: 10px 22px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 15px;
-            font-size: 14px;
+            border-radius: 12px;
+            font-size: 12px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.2s ease-out;
@@ -166,8 +166,8 @@
 </head>
 <body>
 
-    <!-- TAG MUSIK -->
-    <audio id="myAudio" src="https://tikcdn.io/ssstik/m/aHR0cHM6Ly9hcGkxNi1ub3JtYWwtdXNlYXN0NS50aWt0b2t2LnVzL2F3ZW1lL3YxL3BsYXkvP3ZpZGVvX2lkPXYxNTk0MmdmMDAwMGQzYXRwbHZvZzY1cmF0MGpnNGYwJmxpbmU9MCZpc19wbGF5X3VybD0xJnNvdXJjZT1BV0VNRV9ERVRBSUwmZmlsZV9pZD12MTU5NDJnZjAwMDBkM2F0cGx2b2c2NXJhdDBqZzRmMCZpdGVtX2lkPTc1NTQxODY2NjU5MzQyNzc0MDYmc2lnbj1mNzM0MWNiYzk5MzVlZWJhYTYxNzYxZDU5MGNjNTQyMSZzaWduYXR1cmV2Mz1kbWxrWlc5ZmFXUTdabWxzWlY5cFpEdHBkR1Z0WDJsa0xqWmtZMlV6WTJNeU4ySTNaVFl5WWpGbVltWTNZMk0yWWpSalpUTTFaVFE1JnNocD1kMDViMTRiZCZzaGNwPS0=" preload="auto"></audio>
+    <!-- TAG MUSIK LOKAL (Sudah dibersihkan dari karakter error) -->
+    <audio id="myAudio" src="lagumerry.mp3" preload="auto"></audio>
 
     <div class="card-container">
         <!-- Stiker -->
@@ -185,13 +185,13 @@
 
         <!-- Opsi Tombol -->
         <div class="button-group" id="buttonGroup">
-            <button class="btn btn-mau" id="btnMau" onclick="pilihMau()">Mau 💕</button>
-            <button class="btn btn-ngga" id="btnNggak">Ngga 😜</button>
+            <button class="btn btn-mau" id="btnMau" onclick="pilihMau()">Masih, yu </button>
+            <button class="btn btn-ngga" id="btnNggak">ga ada, maaf </button>
         </div>
     </div>
 
     <script>
-    const pesan = "Halo maniss 🌸\n\nAku mau jujur, ternyata perasaanku ke kamu masih ada. Aku tahu aku pernah nyakitin kamu dan mungkin bikin kamu susah percaya lagi sama aku. Aku nggak mau maksa kamu buat nunggu atau langsung balik, aku cuma pengin tahu… setelah semua yang terjadi, kamu masih mau kasih kita kesempatan buat memperbaiki semuanya nggak?";
+    const pesan = "Halo maniss⁉️ \n\nAku mau jujur sama kamu, akhir-akhir ini aku sadar kalau ternyata perasaanku ke kamu masih sama. Aku tahu setelah semua yang aku lakuin, mungkin kamu udah banyak berubah dan mungkin kamu juga udah nggak bisa percaya sama aku seperti dulu. Aku sadar aku pernah nyakitin kamu dan mungkin sampai sekarang masih ada rasa sakit yang kamu simpan. Aku nggak mau membenarkan kesalahanku atau maksa kamu buat kembali, aku cuma nggak mau terus pura-pura kalau aku udah nggak punya rasa apa-apa. Aku masih sayang sama kamu, dan aku ingin tau apakah masih ada harapan nggak buat kita ke depannya?";
 
     const daftarLirik = [
         { waktu: 0, lirik: "🎵 You know it's true " },
@@ -218,23 +218,27 @@
     let index = 0;
     const kecepatanKetik = 40;
 
-    let paddingV = 10;
-    let paddingH = 22;
-    let fontSize = 14;
+    let paddingV = 8;
+    let paddingH = 16;
+    let fontSize = 12;
 
-    // Penghitung jumlah klik pada tombol Ngga
     let jumlahKlikNgga = 0;
 
-    function putarMusik() {
-        audio.play().catch(() => {
-            const mulaiLagu = () => {
-                audio.play();
-                document.body.removeEventListener('click', mulaiLagu);
-                document.body.removeEventListener('touchstart', mulaiLagu);
-            };
-            document.body.addEventListener('click', mulaiLagu);
-            document.body.addEventListener('touchstart', mulaiLagu);
-        });
+    // LOGIKA AUDIO INTERAKTIF (Dipasang langsung ke Event Listener Document)
+    function aktifkanAudio() {
+        const mainkan = () => {
+            audio.play().then(() => {
+                // Hapus pemicu setelah audio berhasil bunyi
+                document.removeEventListener('click', mainkan);
+                document.removeEventListener('touchstart', mainkan);
+                document.removeEventListener('pointerdown', mainkan);
+            }).catch(err => console.log("Menunggu sentuhan user..."));
+        };
+
+        // Pasang event pemicu di seluruh layar
+        document.addEventListener('click', mainkan);
+        document.addEventListener('touchstart', mainkan);
+        document.addEventListener('pointerdown', mainkan);
     }
 
     function ketikTeks() {
@@ -267,20 +271,22 @@
     });
 
     // LOGIKA TOMBOL NGGA (Pindah acak 2x, klik ke-3 ke tolak.html)
-    btnNggak.addEventListener('click', () => {
+    btnNggak.addEventListener('click', (e) => {
         jumlahKlikNgga++;
 
         if (jumlahKlikNgga < 3) {
+            e.preventDefault();
+
             // 1. Membesarkan tombol Mau
-            paddingV += 10;
-            paddingH += 20;
-            fontSize += 4;
+            paddingV += 6;
+            paddingH += 12;
+            fontSize += 2;
             btnMau.style.padding = `${paddingV}px ${paddingH}px`;
             btnMau.style.fontSize = `${fontSize}px`;
 
             // 2. Memindahkan posisi tombol Ngga secara acak
-            const randomX = Math.floor(Math.random() * 200) - 100; // geser X
-            const randomY = Math.floor(Math.random() * 150) - 75;  // geser Y
+            const randomX = Math.floor(Math.random() * 120) - 60;
+            const randomY = Math.floor(Math.random() * 80) - 40;
             
             btnNggak.style.position = 'relative';
             btnNggak.style.transform = `translate(${randomX}px, ${randomY}px)`;
@@ -291,7 +297,7 @@
     });
 
     function pilihMau() {
-        window.location.href = "konfirmasi.html";
+        window.location.href = "maunolak.html";
     }
 
     // Efek Salju Putih
@@ -316,9 +322,8 @@
     window.onload = () => {
         ketikTeks();
         buatEfekSalju();
-        putarMusik();
+        aktifkanAudio(); // Menyiapkan pemicu audio saat sentuhan pertama
     };
-</script>
     </script>
 </body>
 </html>

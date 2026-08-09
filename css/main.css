@@ -29,36 +29,99 @@ body {
     font-style:initial;
     z-index: 999;
 }
-.button-container{
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+
+.header-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin-top: 50px !important; /* Nilai ditambah dari 15px ke 50px agar lebih turun */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    z-index: 10;
+}
+
+/* Title Utama: Font Poppins Modern & Glowing */
+.title-polos {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    letter-spacing: 0.5px !important;
+    text-shadow: 0 0 10px #ff6584, 0 0 20px #ff4d6d !important;
+}
+
+.subtitle-polos {
+    font-family: 'Petit Formal Script', cursive; /* Font Latin Model Buku Halus Tegak */
+    font-style: normal !important;              /* Pasti Tegak Lurus (Gak Miring) */
+    font-size: 0.8rem;                          /* Ukuran Kecil Sesuai Kemauan */
+    color: #ffe3f7;
+    text-shadow: 0 0 6px rgba(255, 227, 247, 0.6);
+    letter-spacing: 0px;                        /* Spasi Normal Biar Nyambung Rapi */
+    margin-top: 5px;
+    text-align: center;
+}
+/* Pembungkus luar agar tombol berada di bawah layar HP */
+.action-buttons {
     position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 9999;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 100;
 }
 
-.button-container.left{
-    left: 50px;
-}
-
-.button-container.right{
-    right: 50px;
-}
-
-.button-container button{
+/* Styling desain tombol */
+.action-buttons button {
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
     background: #ff69b4;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255,105,180,0.4);
-    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+    transition: transform 0.3s ease;
 }
 
-.button-container button:hover{
+.action-buttons button a {
+    color: white;
+    text-decoration: none;
+}
+
+.action-buttons button:hover {
     transform: scale(1.1);
+}
+.btn-tolak {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #9c9c9c; /* Sesuaikan warna jika ingin sama dengan tombol terima */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: left 0.2s ease, top 0.2s ease; /* Memberikan efek perpindahan yang mulus */
+}
+/* Tombol Tolak */
+#btnGamau {
+    position: static; /* Otomatis ubah ke fixed via JS saat disentuh */
 }
 .night {
   position: fixed;

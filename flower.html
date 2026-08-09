@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,375 +8,477 @@
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <title>apa nyak</title>
     <style>
-        /* Desain Teks Ala Coding / Terminal Keren */
-        .title {
-            font-family: 'Fira Code', 'Courier New', Consolas, monospace !important;
-            font-size: 1.4rem !important;
-            color: #fafafa !important; /* Warna Teks Pink Soft */
-            background: rgba(0, 0, 0, 0.6) !important; /* Background agak gelap transparan */
-            border-radius: 8px !important;
-            padding: 10px 18px !important;
-            display: inline-block !important;
-            margin: 20px auto !important;
-            text-shadow: 0 0 8px rgba(255, 77, 109, 0.8) !important; /* Efek Glow Pemrograman */
-            letter-spacing: -0.5px !important;
+        /* Reset & Layout Utama */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Biar posisi judulnya pas di tengah atas */
         body {
+            background-color: #0b1021;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow-x: hidden;
+            padding: 20px 10px;
+            font-family: sans-serif;
+        }
+
+        /* Area Teks Atas */
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+}
+    /* Desain Judul Terminal (Warna Disesuaikan Lebih Aesthetic) */
+    .title {
+        font-family: 'Fira Code', 'Courier New', Consolas, monospace !important;
+        font-size: 1.1rem !important;
+        color: #fff0f5 !important;
+        background: rgba(255, 182, 193, 0.12) !important;
+        border: 1px solid rgba(255, 182, 193, 0.25) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px !important;
+        padding: 10px 18px !important;
+        margin-top: 10px;
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.4) !important;
+        letter-spacing: -0.5px !important;
             text-align: center;
         }
-    </style>
-</head>
-<body>
-    <!-- Tulisan Atas -->
-    <div class="title">
-        Hi manis! Ini buat kamu!🌸
-    </div>
- <div class="flowers">
-    <div class="night"></div>
-  <!-- Pembuat code: https://codepen.io/mdusmanansari/pen/BamepLe -->
-    <div class="night"></div>
-    <div class="flowers">
-      <div class="flower flower--1">
-        <div class="flower__leafs flower__leafs--1">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
-  
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-  
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-          <div class="flower__line__leaf flower__line__leaf--5"></div>
-          <div class="flower__line__leaf flower__line__leaf--6"></div>
-        </div>
-      </div>
-  
-      <div class="flower flower--2">
-        <div class="flower__leafs flower__leafs--2">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
-  
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-  
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-        </div>
-      </div>
-  
-      <div class="flower flower--3">
-        <div class="flower__leafs flower__leafs--3">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
-  
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-  
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-        </div>
-      </div>
-  
-      <div class="grow-ans" style="--d:1.2s">
-        <div class="flower__g-long">
-          <div class="flower__g-long__top"></div>
-          <div class="flower__g-long__bottom"></div>
-        </div>
-      </div>
-  
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--1">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
-  
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--2">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
-  
-      <div class="grow-ans" style="--d:2.4s">
-        <div class="flower__g-right flower__g-right--1">
-          <div class="leaf"></div>
-        </div>
-      </div>
-  
-      <div class="grow-ans" style="--d:2.8s">
-        <div class="flower__g-right flower__g-right--2">
-          <div class="leaf"></div>
-        </div>
-      </div>
-  
-      <div class="grow-ans" style="--d:2.8s">
-        <div class="flower__g-front">
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__line"></div>
-        </div>
-      </div>
-  
-      <div class="grow-ans" style="--d:3.2s">
-        <div class="flower__g-fr">
-          <div class="leaf"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--0">
-        <div class="grow-ans" style="--d:3s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:2.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--1">
-        <div class="grow-ans" style="--d:3.6s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.8s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.2s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--2">
-        <div class="grow-ans" style="--d:4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--3">
-        <div class="grow-ans" style="--d:4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:3s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--4">
-        <div class="grow-ans" style="--d:4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:3s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--5">
-        <div class="grow-ans" style="--d:4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:3s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--6">
-        <div class="grow-ans" style="--d:4.2s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.4s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.6s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:4.8s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-  
-      <div class="long-g long-g--7">
-        <div class="grow-ans" style="--d:3s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.5s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d:3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-    </div>
-    <script src="main.js"></script>
-    </div>
-     <div class="button-container left">
-        <button>
-            <a href="mau1.html">Terima</a>
-        </button>
-     </div>
-    <div class="button-container right" id="btnGamau">
-        <button type="button">
-            tolak
-        </button>
-    </div>
 
-    <!-- Script Logika Tombol Kabur untuk HP & Desktop -->
-<script>
-    const btnGamau = document.getElementById('btnGamau');
+  /* Subtitle Tanpa Container/Kotak (Hanya Teks Glowing) */
+.subtitle {
+    font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #f8caf1;
+    background: none !important;      /* Menghapus background */
+    border: none !important;          /* Menghapus border/kotak */
+    box-shadow: none !important;      /* Menghapus bayangan kotak */
+    padding: 0 !important;            /* Menghapus jarak dalam */
+    letter-spacing: 0.5px;
+            text-align: center;
+    animation: fadeInGlow 2.5s ease-in-out infinite alternate;
+}
 
-    function moveButton(e) {
-        // Mencegah aksi bawaan agar tombol tidak sempat terklik di HP
-        if (e) e.preventDefault();
+@keyframes fadeInGlow {
+    0% {
+        opacity: 0.75;
+        text-shadow: 0 0 4px rgba(248, 202, 241, 0.4);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(248, 202, 241, 0.9), 0 0 18px rgba(255, 105, 180, 0.6);
+    } }
+    /* Pembungkus Bunga di Tengah */
+        .flower-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin: auto 0;
+        }
 
-        // Hitung area layar
-        const padding = 20;
-        const maxX = window.innerWidth - btnGamau.offsetWidth - padding;
-        const maxY = window.innerHeight - btnGamau.offsetHeight - padding;
-
-        // Tentukan koordinat acak
-        const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
-        const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
-
-        // Pindahkan tombol ke posisi acak baru
-        btnGamau.style.position = 'fixed'; // Menggunakan fixed agar konsisten di layar HP saat di-scroll
-        btnGamau.style.left = `${randomX}px`;
-        btnGamau.style.top = `${randomY}px`;
+    /* Penyesuaian container bawaan bunga */
+    .flowers {
+        position: relative;
+        transform: scale(0.85); /* Skala disesuaikan agar pas di layar HP */
+        transform-origin: bottom center;
     }
 
-    // Pemicu untuk Dekstop (Mouse Over & Hover)
-    btnGamau.addEventListener('mouseover', moveButton);
+    /* Container Tombol */
+    .action-buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+        z-index: 10;
+        }
+    /* Reset & Layout Utama */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-    // Pemicu Khusus HP (Touch Start, Pointer Down, & Click)
-    btnGamau.addEventListener('touchstart', moveButton, { passive: false });
-    btnGamau.addEventListener('pointerdown', moveButton);
-    btnGamau.addEventListener('click', moveButton);
+    body {
+        background-color: #0b1021; /* Background malam gelap agar bunga terlihat jelas */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: hidden;
+        padding: 20px 10px;
+        font-family: sans-serif;
+        }
 
+    /* Pembungkus Area Teks Atas */
+    .header-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    /* Desain Judul Terminal (Warna Disesuaikan Lebih Aesthetic) */
+    .title {
+        font-family: 'Fira Code', 'Courier New', Consolas, monospace !important;
+        font-size: 1.1rem !important;
+        color: #fff0f5 !important;
+        background: rgba(255, 182, 193, 0.12) !important;
+        border: 1px solid rgba(255, 182, 193, 0.25) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px !important;
+        padding: 10px 18px !important;
+        margin-top: 10px;
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.4) !important;
+        letter-spacing: -0.5px !important;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(255, 105, 180, 0.15);
+        }
+
+    /* Subtitle Estetik Tambahan (Warna Disesuaikan) */
+    .subtitle {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-style: italic;
+        font-size: 0.85rem;
+        color: #f8caf1;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(248, 202, 241, 0.18);
+        padding: 6px 16px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        animation: fadeInGlow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInGlow {
+        0% {
+            opacity: 0.75;
+            text-shadow: 0 0 4px rgba(248, 202, 241, 0.3);
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(248, 202, 241, 0.8), 0 0 18px rgba(255, 105, 180, 0.5);
+        }
+    }
+
+    /* Pembungkus Bunga di Tengah */
+    .flower-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin: auto 0;
+        }
+
+    /* Penyesuaian container bawaan bunga */
+    .flowers {
+        position: relative;
+        transform: scale(0.85); /* Skala disesuaikan agar pas di layar HP */
+        transform-origin: bottom center;
+        }
+
+        /* Container Tombol */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+            z-index: 10;
+        }
+
+        .button-container button {
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button-container.left button {
+            background: linear-gradient(135deg, #ff6584, #ff4d6d);
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .button-container.left button a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+        }
+
+    /* Tombol Tolak dengan Warna Muted Slate Blue/Purple */
+        .button-container.right button,
+        .btn-tolak {
+            background-color: #2a324b !important;
+            color: #b8c1ec !important;
+            border: 1px solid rgba(184, 193, 236, 0.2) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+
+    /* Penyesuaian khusus HP sangat kecil */
+    @media (max-height: 600px) {
+        .flowers {
+            transform: scale(0.65);
+        }
+        .title {
+            font-size: 0.9rem !important;
+        }
+        .subtitle {
+            font-size: 0.75rem;
+        }
+    }
+    
+    </style>
+</head>
+<body class="loaded">
+
+    <!-- Tulisan Atas -->
+    <div class="header-text">
+        <h1 class="title-polos">Hi manis! Ini buat kamu! 🌸</h1>
+        <p class="subtitle-polos">❣️ SEMOGA HARI HARIMU SELALU MENYENANGKAN YA ❣️</p>
+    </div>
+
+    <!-- Area Bunga di Tengah -->
+    <div class="flower-wrapper">
+        <div class="night"></div>
+        <div class="flowers">
+            <div class="flower flower--1">
+                <div class="flower__leafs flower__leafs--1">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                    <div class="flower__light flower__light--1"></div>
+                    <div class="flower__light flower__light--2"></div>
+                    <div class="flower__light flower__light--3"></div>
+                    <div class="flower__light flower__light--4"></div>
+                    <div class="flower__light flower__light--5"></div>
+                    <div class="flower__light flower__light--6"></div>
+                    <div class="flower__light flower__light--7"></div>
+                    <div class="flower__light flower__light--8"></div>
+                </div>
+                <div class="flower__line">
+                    <div class="flower__line__leaf flower__line__leaf--1"></div>
+                    <div class="flower__line__leaf flower__line__leaf--2"></div>
+                    <div class="flower__line__leaf flower__line__leaf--3"></div>
+                    <div class="flower__line__leaf flower__line__leaf--4"></div>
+                    <div class="flower__line__leaf flower__line__leaf--5"></div>
+                    <div class="flower__line__leaf flower__line__leaf--6"></div>
+                </div>
+            </div>
+
+            <div class="flower flower--2">
+                <div class="flower__leafs flower__leafs--2">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                    <div class="flower__light flower__light--1"></div>
+                    <div class="flower__light flower__light--2"></div>
+                    <div class="flower__light flower__light--3"></div>
+                    <div class="flower__light flower__light--4"></div>
+                    <div class="flower__light flower__light--5"></div>
+                    <div class="flower__light flower__light--6"></div>
+                    <div class="flower__light flower__light--7"></div>
+                    <div class="flower__light flower__light--8"></div>
+                </div>
+                <div class="flower__line">
+                    <div class="flower__line__leaf flower__line__leaf--1"></div>
+                    <div class="flower__line__leaf flower__line__leaf--2"></div>
+                    <div class="flower__line__leaf flower__line__leaf--3"></div>
+                    <div class="flower__line__leaf flower__line__leaf--4"></div>
+                </div>
+            </div>
+
+            <div class="flower flower--3">
+                <div class="flower__leafs flower__leafs--3">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__white-circle"></div>
+                    <div class="flower__light flower__light--1"></div>
+                    <div class="flower__light flower__light--2"></div>
+                    <div class="flower__light flower__light--3"></div>
+                    <div class="flower__light flower__light--4"></div>
+                    <div class="flower__light flower__light--5"></div>
+                    <div class="flower__light flower__light--6"></div>
+                    <div class="flower__light flower__light--7"></div>
+                    <div class="flower__light flower__light--8"></div>
+                </div>
+                <div class="flower__line">
+                    <div class="flower__line__leaf flower__line__leaf--1"></div>
+                    <div class="flower__line__leaf flower__line__leaf--2"></div>
+                    <div class="flower__line__leaf flower__line__leaf--3"></div>
+                    <div class="flower__line__leaf flower__line__leaf--4"></div>
+                </div>
+            </div>
+            <!-- TAMBAHAN BUNGA 4 (KIRI LUAR) -->
+        <div class="flower flower--1" style="position: absolute; left: -20%; bottom: 0; transform: rotate(-30deg) scale(0.75);">
+            <div class="flower__leafs flower__leafs--1">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__white-circle"></div>
+            </div>
+            <div class="flower__line"></div>
+        </div>
+
+        <!-- TAMBAHAN BUNGA 5 (KANAN LUAR) -->
+        <div class="flower flower--2" style="position: absolute; right: -20%; bottom: 0; transform: rotate(30deg) scale(0.75);">
+            <div class="flower__leafs flower__leafs--2">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__white-circle"></div>
+            </div>
+            <div class="flower__line"></div>
+        </div>
+        <!-- TAMBAHAN BUNGA 6 (KIRI SANGAT ATAS) -->
+        <div class="flower flower--3" style="position: absolute; left: -10%; bottom: 40px; transform: rotate(-15deg) scale(0.8);">
+            <div class="flower__leafs flower__leafs--3">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__white-circle"></div>
+            </div>
+            <div class="flower__line"></div>
+        </div>
+
+        <!-- TAMBAHAN BUNGA 7 (KANAN SANGAT ATAS) -->
+        <div class="flower flower--1" style="position: absolute; right: -10%; bottom: 40px; transform: rotate(15deg) scale(0.8);">
+            <div class="flower__leafs flower__leafs--1">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__white-circle"></div>
+            </div>
+            <div class="flower__line"></div>
+        </div>
+
+            <div class="grow-ans" style="--d:1.2s">
+                <div class="flower__g-long">
+                    <div class="flower__g-long__top"></div>
+                    <div class="flower__g-long__bottom"></div>
+                </div>
+            </div>
+
+            <div class="growing-grass">
+                <div class="flower__grass flower__grass--1">
+                    <div class="flower__grass--top"></div>
+                    <div class="flower__grass--bottom"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                    <div class="flower__grass__overlay"></div>
+                </div>
+            </div>
+
+            <div class="growing-grass">
+                <div class="flower__grass flower__grass--2">
+                    <div class="flower__grass--top"></div>
+                    <div class="flower__grass--bottom"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                    <div class="flower__grass__overlay"></div>
+                </div>
+                <!-- PITA IKATAN BOUQUET -->
+        <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; display: flex; flex-direction: column; align-items: center;">
+            <!-- Simpul Pita -->
+            <div style="width: 36px; height: 16px; background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 20px #ff6584; position: relative;">
+                <!-- Ekor Pita Kiri & Kanan -->
+                <div style="position: absolute; top: 10px; left: 6px; width: 5px; height: 22px; background: #ffffff; transform: rotate(25deg); box-shadow: 0 0 8px #ffffff;"></div>
+                <div style="position: absolute; top: 10px; right: 6px; width: 5px; height: 22px; background: #ffffff; transform: rotate(-25deg); box-shadow: 0 0 8px #ffffff;"></div>
+            </div>
+        </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Area Tombol -->
+    <div class="action-buttons">
+        <div class="button-container left">
+            <button>
+                <a href="mau1.html">Terima</a>
+            </button>
+        </div>
+        <div class="button-container right">
+            <button type="button" id="btnGamau" class="btn-tolak">Tolak</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+    <!-- Script Tombol Kabur -->
+    <script>
+        const btnGamau = document.getElementById('btnGamau');
+
+        function moveButton(e) {
+            if (e) e.preventDefault();
+
+            if (btnGamau.parentElement !== document.body) {
+                document.body.appendChild(btnGamau);
+            }
+
+            const padding = 20;
+            const maxX = window.innerWidth - btnGamau.offsetWidth - padding;
+            const maxY = window.innerHeight - btnGamau.offsetHeight - padding;
+
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+            btnGamau.style.position = 'fixed';
+            btnGamau.style.left = `${randomX}px`;
+            btnGamau.style.top = `${randomY}px`;
+            btnGamau.style.zIndex = '9999';
+        }
+
+        btnGamau.addEventListener('mouseover', moveButton);
+        btnGamau.addEventListener('touchstart', moveButton, { passive: false });
+        btnGamau.addEventListener('pointerdown', moveButton);
+        btnGamau.addEventListener('click', moveButton);
     </script>
-    </body>
+</body>
 </html>

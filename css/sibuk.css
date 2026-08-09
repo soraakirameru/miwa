@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+
 *{
-    font-family: 'Poppins',cursive;
+    font-family: 'Poppins', cursive;
 }
+
 body{
     color: azure;
     width: 100%;
@@ -11,53 +13,68 @@ body{
     align-items: center;
     justify-content: center;
     background-color: black;
+    margin: 0;
+    overflow: hidden;
 }
-.floating-icons{
-    position: absolute;
-    top: 20%;
+
+/* 1. Emoji Floating Dikecilkan */
+/* Emoji Floating Dibesarkan dan Dipaksa Turun */
+.floating-icons {
+    position: relative !important; /* Mengubah posisi agar mengikuti alur halaman */
+    top: auto !important;          /* Menghapus acuan top absolut */
+    margin-top: 40px;             /* Atur jarak dari atas dengan margin (Ubah angka ini untuk naik/turun) */
+    margin-bottom: 35px;          /* Jarak ke teks di bawahnya */
     width: 100%;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;              /* Ukuran emoji besar */
+    letter-spacing: 3px;          /* Jarak antar emoji */
     animation: float 3s ease-in-out infinite;
+    z-index: 10;
 }
 
 @keyframes float{
     50%{
-        transform: translateY(-10px);
+        transform: translateY(-6px);
     }
 }
+
+/* 2. Teks Utama Dikecilkan */
 .greetings{
     text-align: center;
-    width: 100%;
-    font-size: 30px;
+    width: 85%;
+    max-width: 260px; /* Dibatasi lebarnya agar rapi */
+    font-size: 13px;  /* Dikecilkan dari 30px */
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+    text-shadow:
+        0 0 6px #ff69b4,
+        0 0 12px #ff69b4,
+        0 0 20px #ff69b4;
 } 
+
 .greetings > span{
     animation: glow infinite;
 }
+
 @keyframes glow{
     0%, 100%{
         color: #fff;
-        text-shadow: 0 0 12px #f97fd5, 0 0 50px #f97fd5, 0 0 100px #f97fd5;
+        text-shadow: 0 0 8px #f97fd5, 0 0 25px #f97fd5;
     }
     10%, 90%{
         color: #ffffff;
         text-shadow: none;
     }
 }
-.greetings{
-    position: relative;
-    z-index: 10;
-    text-shadow:
-        0 0 10px #ff69b4,
-        0 0 20px #ff69b4,
-        0 0 40px #ff69b4,
-        0 0 80px #ff69b4;
-}
+
 .description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 11px;
+    margin-bottom: 15px;
     font-style: initial;
 }
+
+/* 3. Animasi Hati Dikecilkan Ukurannya */
 .hearts{
     position: fixed;
     top: 0;
@@ -75,90 +92,93 @@ body{
     animation: floatUp linear infinite;
 }
 
-/* posisi, ukuran, dan durasi acak */
-.hearts span:nth-child(1){left:5%;font-size:20px;animation-duration:8s;}
-.hearts span:nth-child(2){left:15%;font-size:35px;animation-duration:12s;}
-.hearts span:nth-child(3){left:28%;font-size:25px;animation-duration:10s;}
-.hearts span:nth-child(4){left:42%;font-size:40px;animation-duration:15s;}
-.hearts span:nth-child(5){left:55%;font-size:18px;animation-duration:9s;}
-.hearts span:nth-child(6){left:68%;font-size:32px;animation-duration:13s;}
-.hearts span:nth-child(7){left:77%;font-size:24px;animation-duration:11s;}
-.hearts span:nth-child(8){left:88%;font-size:38px;animation-duration:14s;}
-.hearts span:nth-child(9){left:12%;font-size:28px;animation-duration:16s;}
-.hearts span:nth-child(10){left:35%;font-size:22px;animation-duration:10s;}
-.hearts span:nth-child(11){left:63%;font-size:30px;animation-duration:12s;}
-.hearts span:nth-child(12){left:92%;font-size:26px;animation-duration:9s;}
+/* Ukuran font ikon hati dibuat lebih kecil */
+.hearts span:nth-child(1){left:5%;font-size:12px;animation-duration:8s;}
+.hearts span:nth-child(2){left:15%;font-size:20px;animation-duration:12s;}
+.hearts span:nth-child(3){left:28%;font-size:14px;animation-duration:10s;}
+.hearts span:nth-child(4){left:42%;font-size:22px;animation-duration:15s;}
+.hearts span:nth-child(5){left:55%;font-size:10px;animation-duration:9s;}
+.hearts span:nth-child(6){left:68%;font-size:18px;animation-duration:13s;}
+.hearts span:nth-child(7){left:77%;font-size:13px;animation-duration:11s;}
+.hearts span:nth-child(8){left:88%;font-size:20px;animation-duration:14s;}
+.hearts span:nth-child(9){left:12%;font-size:15px;animation-duration:16s;}
+.hearts span:nth-child(10){left:35%;font-size:12px;animation-duration:10s;}
+.hearts span:nth-child(11){left:63%;font-size:16px;animation-duration:12s;}
+.hearts span:nth-child(12){left:92%;font-size:14px;animation-duration:9s;}
 
 @keyframes floatUp{
     0%{
         transform: translateX(0) translateY(0) rotate(0deg);
         opacity:0;
     }
-    
     20%{
         opacity:1;
     }
-    
     25%{
-        transform: translateX(-30px) translateY(-25vh) rotate(90deg);
+        transform: translateX(-20px) translateY(-25vh) rotate(90deg);
     }
-    
     50%{
-        transform: translateX(40px) translateY(-50vh) rotate(180deg);
+        transform: translateX(25px) translateY(-50vh) rotate(180deg);
     }
-    
     75%{
-        transform: translateX(-20px) translateY(-75vh) rotate(270deg);
+        transform: translateX(-15px) translateY(-75vh) rotate(270deg);
     }
-    
     100%{
-        transform: translateX(50px) translateY(-120vh) rotate(360deg);
+        transform: translateX(30px) translateY(-120vh) rotate(360deg);
         opacity:0;
     }
 }
+
+/* 4. Tombol Next Dikecilkan */
 .button button{
     background: #f97fd5;
     border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
+    border-radius: 15px;
+    padding: 6px 16px; /* Dikecilkan dari 10px 20px */
     display: flex;
     justify-content: center;
     align-items: center;
-     text-align: center;
-    margin-top: 50px;
+    text-align: center;
+    margin-top: 25px; /* Dikecilkan dari 50px */
+    position: relative;
+    z-index: 10;
 }
-
 
 .button a{
     text-decoration: none;
     color: white;
-    font-size: 1rem;
+    font-size: 11px; /* Dikecilkan dari 1rem */
 }
+
+/* 5. Efek Pendaran/Glow Belakang Dikecilkan */
 .blur-heart{
     position: fixed;
-    top: 25%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
+    width: 180px;  /* Dikecilkan dari 300px */
+    height: 180px; /* Dikecilkan dari 300px */
     background: #ff69b4;
     border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.5;
+    filter: blur(80px); /* Blur disesuaikan */
+    opacity: 0.4;
     z-index: 0;
 }
+
+/* 6. Aturan Layar HP (Responsive) */
 @media screen and (max-width:574px){
     .greetings{
         display: block;
-        font-size: 3rem;
+        font-size: 12px; /* Dikecilkan dari 1.5rem */
         font-weight: 500;
         text-align: center;
+        padding: 0 5px;
     }
     .description{
-        font-size: 1rem;
+        font-size: 10px;
     }
     
     .button a{
-        font-size: .5rem;
+        font-size: 10px;
     }
 }
