@@ -15,18 +15,135 @@
             padding: 0;
         }
 
-        html, body {
-            height: 100dvh;
-            min-height: 100dvh;
-            background-color: #0b1021;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            overflow: hidden;
-            padding: 10px 10px;
-            font-family: sans-serif;
-        }
+    body {
+        background-color: #0b1021; /* Background malam gelap agar bunga terlihat jelas */
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: hidden;
+        padding: 20px 10px;
+        font-family: sans-serif;
+    }
+    html, body {
+    height: 100%; /* Fallback */
+    height: 100dvh;
+    background-color: #0b1021;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Ganti overflow hidden agar tidak memotong elemen, gunakan auto jika perlu */
+    overflow-x: hidden; 
+    overflow-y: auto;
+    padding: 10px 10px;
+    /* Tambahkan safe-area untuk HP yang memiliki notch/home bar di bawah */
+    padding-bottom: env(safe-area-inset-bottom, 20px); 
+    font-family: sans-serif;
+}
+
+ /* Pembungkus Area Teks Atas */
+ .header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+}
+    /* Desain Judul Terminal (Warna Disesuaikan Lebih Aesthetic) */
+    .title {
+        font-family: 'Fira Code', 'Courier New', Consolas, monospace !important;
+        font-size: 1.1rem !important;
+        color: #fff0f5 !important;
+        background: rgba(255, 182, 193, 0.12) !important;
+        border: 1px solid rgba(255, 182, 193, 0.25) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px !important;
+        padding: 10px 18px !important;
+        margin-top: 10px;
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.4) !important;
+        letter-spacing: -0.5px !important;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(255, 105, 180, 0.15);
+    }
+
+  /* Subtitle Tanpa Container/Kotak (Hanya Teks Glowing) */
+.subtitle {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #f8caf1;
+    background: none !important;      /* Menghapus background */
+    border: none !important;          /* Menghapus border/kotak */
+    box-shadow: none !important;      /* Menghapus bayangan kotak */
+    padding: 0 !important;            /* Menghapus jarak dalam */
+    letter-spacing: 0.5px;
+    text-align: center;
+    animation: fadeInGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes fadeInGlow {
+    0% {
+        opacity: 0.75;
+        text-shadow: 0 0 4px rgba(248, 202, 241, 0.4);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(248, 202, 241, 0.9), 0 0 18px rgba(255, 105, 180, 0.6);
+    } }
+    /* Pembungkus Bunga di Tengah */
+    .flower-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin: auto 0;
+    }
+
+    /* Penyesuaian container bawaan bunga */
+    .flowers {
+        position: relative;
+        transform: scale(0.85); /* Skala disesuaikan agar pas di layar HP */
+        transform-origin: bottom center;
+    }
+
+    /* Container Tombol */
+    .action-buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+        z-index: 10;
+    }
+    /* Reset & Layout Utama */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #0b1021; /* Background malam gelap agar bunga terlihat jelas */
+        min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Ganti overflow hidden agar tidak memotong elemen, gunakan auto jika perlu */
+    overflow-x: hidden; 
+    overflow-y: auto;
+    padding: 10px 10px;
+    /* Tambahkan safe-area untuk HP yang memiliki notch/home bar di bawah */
+    padding-bottom: env(safe-area-inset-bottom, 20px); 
+    font-family: sans-serif;
+}
 
         /* Pembungkus Area Teks Atas */
         .header-text {
@@ -79,7 +196,15 @@
             align-items: flex-end;
             margin: auto 0;
         }
-
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px; /* Sedikit dinaikkan */
+    z-index: 10;
+}
         /* Penyesuaian container bawaan bunga */
         .flowers {
             position: relative;
